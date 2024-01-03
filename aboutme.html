@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <style>
+        .age{
+            font-size: 50px;
+        }
+    </style>
+
+    <h1>About Me</h1>
+    <div>
+        <class="section">
+            <img src="me.png" class="me" alt="me" title="stickman" height="width= 60">
+            <div class="about">
+                <h2>Lleyton</h2>
+                <p1>My name is Lleyton and I am a student studying in Republic Polytechnic. I enjoy creating works that
+                    focus on simplistic design and learning new things about coding.</p1>
+            </div>
+            <div class="age">18</div>
+    </div>
+
+    <script>
+        anime({
+            targets: 'about, h2',
+            translateX: { value: 360, duration: 1800, easing: 'easeInOutSine' },
+            easing: 'easeInOutSine',
+            direction: 'alternate',
+        });
+
+        anime({
+            targets: 'h1',
+            keyframes: [
+                { translateY: -40 },
+                { translateX: 250 },
+                { translateY: 40 },
+                { translateX: 0 },
+                { translateY: 0 }
+            ],
+            rotate: 360,
+            delay: anime.stagger(400, { start: 1000 }),
+            direction: 'alternate'
+        });
+
+        anime({
+            targets: '.me',
+            keyframes: [
+                { translateY: -40 },
+                { translateX: 250 },
+                { translateY: 40 },
+                { translateX: 0 },
+                { translateY: 0 }
+            ],
+            duration: 4000,
+            easing: 'easeOutElastic(1, .8)',
+        });
+
+        anime({
+            targets: '.age',
+            innerHTML: [0, 18],
+            easing: 'linear',
+            round: 1, 
+            duration: 2000
+        });
+
+    </script>
+
+
+</body>
+
+</html>

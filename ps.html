@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <style>
+        img {
+            max-height: 100%;
+        }
+
+        .section {
+            text-align: center;
+        }
+    </style>
+
+
+    <div id="fullpage">
+        <div class="section">
+            <h1>About Me</h1>
+            <img src="me.png" class="me" alt="me" title="stickman" height="width= 60">
+            <div class="about">
+                <h2>Lleyton</h2>
+                <p1>My name is Lleyton and I am a student studying in Republic Polytechnic. I enjoy creating works that
+                    focus on simplistic design and learning new things about coding.</p1>
+            </div>
+            <div class="age">18</div>
+        </div>
+        <div class="section">
+            <h2>Contact Me</h2>
+            <p1>Phone: 9089 6625</p1><br />
+            <p1>Email: 22015711@myrp.edu.sg</p1><br />
+            <i class="fab fa-linkedin"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram-square"></i>
+        </div>
+    </div>
+
+    <script>
+        var spinTitle = anime({
+            targets: ".me",
+            rotate: "360deg",
+            duration: 2000
+        });
+
+
+        var number = anime({
+            targets: '.age',
+            innerHTML: [0, 18],
+            easing: 'linear',
+            round: 1, 
+            duration: 2000
+        });
+
+        var translate = anime({
+            targets: 'about, h2',
+            keyframes: [
+                { translateX: 360},
+                { translateX: 0 },
+                { translateX: -360 },
+                { translateX: 0 }
+            ],
+            easing: 'easeInOutSine',
+            direction: 'alternate',
+            delay: anime.stagger(400, { start: 1000 }),
+        });
+
+        var stagger = anime({
+            targets: 'i',
+            keyframes: [
+                { translateX: 360},
+                { translateX: 0 },
+                { translateX: -360 },
+                { translateX: 0 }
+            ],
+            easing: 'easeInOutSine',
+            direction: 'alternate',
+            delay: anime.stagger(400, { start: 1000 }),
+        });
+
+
+        $(document).ready(function () {
+            $("#fullpage").fullpage({
+                sectionsColor: ["#03A9F4", "#2ECC71"],
+                navigation: true,
+                navigationPosition: "right",
+                anchors: ['section1', 'section2'],
+
+                afterLoad: function (origin, destination, direction) {
+                    if (destination.index == 1) { 
+                        spinTitle.play(); 
+                        translate.play();
+                        number.play();
+                    }
+                }
+            });
+        });
+
+
+
+    </script>
+
+    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <style>
+        img{
+            max-height: 100%;
+        }
+
+        p{
+            text-align: center;
+            z-index: -1;
+        }
+        
+        .slide{
+            text-align: center;
+            background-color: orange;
+        }
+    </style>
+
+    <div id="fullpage">
+        <div class="section">
+            <p>Section 1</p>
+        </div>
+        <div class="section">
+            <p>Section 2</p>
+        </div>
+        <div class="section">
+            <div class="slide">
+                <img src="pic1.png" width="900">
+            </div>
+            <div class="slide">
+                <img src="pic2.jpg" width="900">
+            </div>
+            <div class="slide">
+                <img src="pic3.jpg" width="900">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#fullpage").fullpage({
+          sectionsColor: ["#03A9F4", "#2ECC71"],
+          navigation: true,
+          navigationPosition: "right",
+        });
+      });
+    </script>
+
+</body>
+
+</html>
